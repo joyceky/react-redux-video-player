@@ -18,9 +18,7 @@ class SearchBar extends Component {
 // html elements emit change elements when users interact
     return (
     <div>
-      <input
-      value={this.state.term};
-      onChange={event => this.setState({ term: event.target.value })}/>;
+      <input onChange={event => this.setState({ term: event.target.value })}/>;
     </div>
     )
   }
