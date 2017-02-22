@@ -9,24 +9,25 @@ class SearchBar extends Component {
 // Anywhere else use this.setState() to maintain continuity
   constructor(props){
     super(props);
-    console.log(super(props));
-    console.log(props);
-    this.state = { term: ''};
+
+    this.state = { term: '' };
   }
 
   render() {
 // html elements emit change elements when users interact
     return (
-    <div>
-      <input onChange={event => this.setState({ term: event.target.value })}/>;
-    </div>
-    )
-  }
+      <div className="search-bar">
+        <input
+          value={this.state.term}
+          onChange={event => this.onInputChange(event.target.value)} />
+      </div>
+    );
+   }
 
-  // onInputChange(event) {
-  //   this.setState({ term: event.target.value })}
-  // }
-
+ onInputChange(term) {
+   this.setState({term});
+   this.props.onSearchTermChange(term);
  }
+}
 
 export default SearchBar;
